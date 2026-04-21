@@ -1,0 +1,919 @@
+/* =========================================
+   1. GLOBAL STYLES & BUTTONS
+   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff6600;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+
+/* =========================================
+   3. NAVBAR & BRANDING
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+}
+
+.nav-container {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo-link {
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.logo span {
+    color: #ff9900;
+    margin-left: -12px; /* Pulls Beans into Hot */
+}
+
+.nav-icon {
+    height: 45px;
+    width: auto;
+    max-width: 60px;
+    object-fit: contain;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    transition: all 0.4s ease-in-out; 
+}
+
+/* Logo Hover States */
+.logo:hover {
+    color: #ff9900;
+    text-shadow: 0 0 10px #ff4500;
+}
+
+.logo:hover .nav-icon {
+    animation: flicker 0.8s infinite alternate, heatWave 1.5s infinite ease-in-out;
+}
+
+/* Nav Links */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin-left: 30px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #ff9900;
+}
+
+/* =========================================
+   3. HERO SECTION (Homepage)
+   ========================================= */
+.hero {
+    /* Reduced overlay from 0.6 to 0.2 for much more light */
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('images/image.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    /* This boosts the overall image brightness */
+    filter: brightness(1.1) contrast(1.05);
+}
+
+.hero-content {
+    z-index: 10;
+}
+
+.hero-content h1 {
+    color: #00ff6a;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    /* Stronger shadow so it's readable on a bright background */
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
+}
+
+.hero-content p {
+    color: #00fff2;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.9);
+}
+
+.snow {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(3px 3px at 80px 120px, #fff, transparent),
+        radial-gradient(2px 2px at 150px 90px, #fff, transparent),
+        radial-gradient(3px 3px at 250px 40px, #fff, transparent);
+    background-size: 300px 300px;
+    animation: snow-fall 10s linear infinite;
+    opacity: 0.5;
+}
+
+.aurora {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;        
+    opacity: 0.6; 
+    background: radial-gradient(circle at 10% 0%, rgba(0,255,200,0.5), transparent 60%),
+                radial-gradient(circle at 60% 0%, rgba(0,180,255,0.5), transparent 60%);
+    animation: aurora-move 15s ease-in-out infinite alternate;
+}
+
+@keyframes leopardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes snow-fall {
+    from { background-position: 0 0; }
+    to { background-position: 0 300px; }
+}
+
+/* =========================================
+   4. INFO SECTION (Lynx Image & About)
+   ========================================= */
+.info-section {
+    padding: 80px 20px;
+    background-color: #f5f5f5;
+}
+
+.info-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.info-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.info-image a {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.info-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.info-image img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 0 40px rgba(0, 255, 242, 0.6);
+}
+
+.info-text {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
+}
+
+/* =========================================
+   5. ABOUT PAGE (Values, Services, CTA)
+   ========================================= */
+/* Values Section */
+.values-section {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.values-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.value-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid #00ff6a;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.value-card h3 {
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.value-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Services Section */
+.services-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    flex: 1;
+    min-width: 280px;
+    padding: 40px 20px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    background: #fcfcfc;
+    border-color: #00ff6a;
+    transform: scale(1.02);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 3rem;
+    color: #00ff6a;
+    margin-bottom: 10px;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: #00fff2;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background-color: #ff9900;
+    border: none;
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
+}
+
+.cta-btn:hover {
+    background-color: #e68a00;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(255, 153, 0, 0.6);
+}
+
+/* =========================================
+   6. FORMS & APPLY PAGE
+   ========================================= */
+.apply-section {
+    padding: 80px 20px;
+    background: #f4f4f4;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    border-top: 5px solid #ff9900;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00ff6a;
+    box-shadow: 0 0 10px rgba(0, 255, 106, 0.2);
+}
+
+/* File Upload Specific Styling */
+input[type="file"] {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 2px dashed #00ff6a;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #333;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #00fff2;
+    color: #000;
+}
+
+.apply-form .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.apply-form .btn:hover {
+    background-color: #e68a00;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.4);
+}
+
+#success-message {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 60px 20px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-logo {
+    flex: 2;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.footer-logo span {
+    color: #ff9900;
+}
+
+.footer-logo p {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.footer-links, .footer-socials {
+    flex: 1;
+}
+
+.footer h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #00ff6a;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #ff9900;
+}
+
+.social-icons a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* =========================================
+   8. JOBS PAGE STYLES
+   ========================================= */
+.jobs-header {
+    text-align: center;
+    padding: 60px 20px;
+    background: #1a1a1a;
+    color: white;
+}
+
+.job-grid-section {
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.job-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.job-card {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.job-card:hover {
+    border-color: #ff9900;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 40px 0;
+}
+
+.job-details-container {
+    max-width: 900px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+}
+
+.detail-box {
+    margin-bottom: 80px;
+    padding: 40px;
+    background: white;
+    border-left: 5px solid #00ff6a; /* Neon Green accent */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-radius: 0 15px 15px 0;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.pay-info {
+    grid-column: span 2;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pay-info strong {
+    color: #333;
+}
+
+/* =========================================
+   9. JOB DETAIL INDIVIDUAL PAGES
+   ========================================= */
+.job-detail-page {
+    padding: 60px 20px;
+    background-color: #fcfcfc;
+    min-height: 80vh;
+}
+
+.detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.job-detail-page h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+    border-left: 8px solid #00ff6a; /* That signature neon green */
+    padding-left: 20px;
+}
+
+.detail-content {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.main-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.main-info h3 {
+    margin-top: 30px;
+    color: #333;
+}
+
+.main-info p, .main-info li {
+    line-height: 1.8;
+    color: #555;
+}
+
+.side-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.stat-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.stat-box h4 {
+    margin: 0 0 5px 0;
+    color: #999;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.stat-box p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+}
+
+.apply-now-full {
+    width: 100%;
+    text-align: center;
+    padding: 18px;
+    font-size: 1.2rem;
+}
+
+
+/* =========================================
+   10. TEAM SLIDER (WITH IMAGE BACKGROUND)
+   ========================================= */
+   .team-page {
+    position: relative;
+    padding: 100px 20px;
+    background: url('images/background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; 
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Dark overlay for readability */
+.team-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 1;
+}
+
+.team-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.section-title-white {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 50px;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.slider-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    min-height: 400px; /* Keeps the page from jumping when slides change */
+}
+
+/* FADE ANIMATION */
+.slide {
+    display: none; 
+}
+
+.slide.active {
+    display: block;
+    animation: slideFade 0.6s ease-in-out;
+}
+
+@keyframes slideFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.member-box {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.95); 
+    padding: 50px;
+    border-radius: 25px;
+    text-align: left;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.member-box img {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.member-info .role {
+    color: #00ff6a; /* Neon Green */
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.arrow {
+    background: #ff9900;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.arrow:hover {
+    background: #00ff6a;
+    transform: scale(1.1);
+}
+
+/* CREDITS SECTION - Ensuring a solid cut-off */
+.credits-section {
+    position: relative;
+    z-index: 3;
+    background-color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.credits-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.thanks-box {
+    margin-top: 40px;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    border-top: 4px solid #00fff2;
+}
+
+/* =========================================
+   1. KEYFRAMES & ANIMATIONS
+   ========================================= */
+@keyframes flicker {
+    0% { filter: drop-shadow(0 0 5px #ff4500) brightness(1); }
+    50% { filter: drop-shadow(0 0 20px #ff8c00) brightness(1.3); }
+    100% { filter: drop-shadow(0 0 5px #ff4500) brightness(1); }
+}
+
+@keyframes heatWave {
+    0% { transform: scale(1) skewX(0deg); }
+    25% { transform: scale(1.08) skewX(1.5deg); }
+    75% { transform: scale(1.08) skewX(-1.5deg); }
+    100% { transform: scale(1) skewX(0deg); }
+}
+/* =========================================
+   SUSTAINABILITY & FOOTER BRANDING
+   ========================================= */
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-logo span {
+    color: #ff9900;
+    margin-left: -1px; /* Removes the gap between Hot and Beans */
+}
+
+/* The Combined Green Box Highlight */
+.sustainability-badge {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background: rgba(0, 255, 106, 0.08); /* Subtle green tint */
+    border: 1px solid #00ff6a;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column; /* Stacks the two notes vertically */
+    gap: 8px; /* Adds space between the two lines */
+    align-items: flex-start;
+    box-shadow: 0 0 15px rgba(0, 255, 106, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.sustainability-badge p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #00ff6a;
+    letter-spacing: 0.2px;
+    line-height: 1.4;
+}
+
+.sustainability-badge strong {
+    color: #00ff6a;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+/* Optional: Slight glow on hover */
+.sustainability-badge:hover {
+    transform: scale(1.02);
+    background: rgba(0, 255, 106, 0.12);
+}

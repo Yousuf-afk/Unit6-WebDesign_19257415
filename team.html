@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Hot Beans</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <nav class="navbar">
+    <a href="index.html" class="logo-link">
+       <div class="logo">
+    <img src="images/hotbeans_logo_128.png" alt="Hot Beans Logo" class="nav-icon">
+    Hot<span>Beans</span>
+</div>
+    </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="team.html">Team</a></li>
+        </ul>
+    </nav>
+
+    <section class="team-page">
+        <div class="team-overlay"></div> 
+        <div class="team-content-wrapper">
+            <h1 class="section-title-white">Meet the Pride</h1>
+            
+            <div class="slider-container">
+                <button class="arrow left-arrow" onclick="moveSlide(-1)">&#10094;</button>
+                
+                <div class="slider">
+                    <div class="slide active">
+                        <div class="member-box">
+                            <img src="images/rooster.jpg" alt="Hasibul">
+                            <div class="member-info">
+                                <h2>Hasibul Mollick</h2>
+                                <p class="role">Front End Developer</p>
+                                <p><strong>Age:</strong> 24 | <strong>Joined:</strong> 2022</p>
+                                <p class="story">Hasibul is the wizard behind our sleek interfaces. He joined us during the Great Freeze of '22 and has been turning coffee into clean code ever since.</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="slide">
+                        <div class="member-box">
+                            <img src="images/goat.jpg" alt="Yaqub">
+                            <div class="member-info">
+                                <h2>Yaqub Hussain</h2>
+                                <p class="role">Back End Developer</p>
+                                <p><strong>Age:</strong> 28 | <strong>Joined:</strong> 2020</p>
+                                <p class="story">The backbone of our servers. Yaqub was one of the first 'Beans' and handles our data architecture with icy precision.</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="slide">
+                        <div class="member-box">
+                            <img src="images/wolf.jpg" alt="Alexander">
+                            <div class="member-info">
+                                <h2>Alexander Davis</h2>
+                                <p class="role">Green IT Consultant</p>
+                                <p><strong>Age:</strong> 26 | <strong>Joined:</strong> 2024</p>
+                                <p class="story">Alexander ensures our internal systems and client projects maintain a zero-carbon footprint. Joined us recently in 2024, and has commited to being eco-friendly since then.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <button class="arrow right-arrow" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="credits-section">
+        <div class="credits-content">
+            <h2>Join the Team</h2>
+            <p>Our team is more than just coworkers; we're a family of developers pushing the limits of the web. We value creativity, late-night debugging sessions, and perfect UI.</p>
+            <div class="thanks-box">
+                <p><strong>Special Thanks:</strong> To our early supporters and the open-source community that makes our work possible. Credits to the Hot Beans founding crew.</p>
+                <a href="apply.html" class="btn">We're Hiring!</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function moveSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            Hot<span>Beans</span>
+            <p>Building the coolest web solutions since 2024.</p>
+
+            <div class="sustainability-badge">
+                <p>🌱 This website is hosted on 100% renewable energy servers.</p>
+    <p>🌱 <strong>Hot Beans</strong> is committed to 100% Carbon Neutral Operations by 2030.</p>
+</div>
+        </div>
+
+        <div class="footer-links">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="apply.html">Apply Now</a></li>
+            </ul>
+        </div>
+
+           <div class="footer-socials">
+    <h3>Follow Us</h3>
+    <div class="social-icons">
+        <a href="https://gb.linkedin.com/" target="_blank">LinkedIn</a>
+        <a href="https://x.com" target="_blank">Twitter</a>
+        <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+</div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 Hot Beans Web Dev. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

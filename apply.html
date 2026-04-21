@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now | Hot Beans</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <nav class="navbar">
+    <a href="index.html" class="logo-link">
+       <div class="logo">
+    <img src="images/hotbeans_logo_128.png" alt="Hot Beans Logo" class="nav-icon">
+    Hot<span>Beans</span>
+</div>
+    </a>
+    
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="apply.html">Apply Now</a></li>
+        <li><a href="team.html">Team</a></li>
+    </ul>
+</nav>
+
+<section class="apply-section">
+    <div class="form-container">
+        
+        <div id="form-wrapper">
+            <h2>Join the Hot Beans Team</h2>
+            <p>Ready to build the future of the web? Fill out the form below.</p>
+            
+            <form id="applicationForm" class="apply-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Desired Role</label>
+                    <select id="role">
+                        <option value="frontend">Frontend Developer</option>
+                        <option value="backend">Backend Developer</option>
+                        <option value="uiux">UI/UX Designer</option>
+                        <option value="uiux">Junior IT developer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Why should we hire you?</label>
+                    <textarea id="message" rows="5" placeholder="Tell us about your passion..."></textarea>
+                </div>
+       <div class="form-group">
+                    <label>Upload Resume (PDF)</label>
+                    <input type="file" class="file-input">
+                </div>
+
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </div>
+
+        <div id="success-message" style="display: none; text-align: center;">
+            <h2 style="color: #00ff6a;">Success! 🚀</h2>
+            <p>Your application has been sent to the Hot Beans team. We'll get back to you faster than a caffeinated developer!</p>
+            <button onclick="resetForm()" class="btn" style="background-color: #333;">Submit Another</button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    const formWrapper = document.getElementById('form-wrapper');
+    const successMessage = document.getElementById('success-message');
+    const applyForm = document.getElementById('applicationForm');
+
+    applyForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // This stops the page from refreshing!
+        
+        // In a real app, you'd send data to a server here.
+        // For now, we just swap the views.
+        formWrapper.style.display = 'none';
+        successMessage.style.display = 'block';
+    });
+
+    function resetForm() {
+        applyForm.reset(); 
+        successMessage.style.display = 'none';
+        formWrapper.style.display = 'block';
+    }
+</script>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            Hot<span>Beans</span>
+            <p>Building the coolest web solutions since 2024.</p>
+
+            <div class="sustainability-badge">
+                <p>🌱 This website is hosted on 100% renewable energy servers.</p>
+    <p>🌱 <strong>Hot Beans</strong> is committed to 100% Carbon Neutral Operations by 2030.</p>
+</div>
+        </div>
+
+        <div class="footer-links">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="apply.html">Apply Now</a></li>
+            </ul>
+        </div>
+
+           <div class="footer-socials">
+    <h3>Follow Us</h3>
+    <div class="social-icons">
+        <a href="https://gb.linkedin.com/" target="_blank">LinkedIn</a>
+        <a href="https://x.com" target="_blank">Twitter</a>
+        <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+</div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 Hot Beans Web Dev. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
